@@ -1,0 +1,10 @@
+{
+   "manifest_version": 2,
+   "name": "Zoom Element",
+   "content_scripts": [{
+      "js": [ "src/zoom.js", "src/content.js"  ],
+      "matches": [ "http://*/*", "https://*/*" ]
+   }],
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "0.1.0"
+}
