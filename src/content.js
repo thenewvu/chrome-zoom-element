@@ -1,5 +1,5 @@
 (() => {
-  const DURATION = 500
+  const DURATION = 1000
 
   let zoomed = false
   function toggleZoom (element) {
