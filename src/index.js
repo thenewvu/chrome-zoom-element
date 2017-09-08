@@ -12,9 +12,9 @@
   })
 
   document.body.addEventListener('mouseup', ev => {
-    if (window.getSelection().toString()) return
-
     element.classList.remove('zoom-target')
+
+    if (window.getSelection().toString()) return
     const duration = Date.now() - downAt
     if (duration > MIN_DURATION) {
       ev.preventDefault()
