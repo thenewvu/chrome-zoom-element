@@ -1,22 +1,25 @@
 /* global zoom */
 
 (() => {
-  const DURATION = 700
-  let heldAt = 0
+  const MIN_DURATION = 700
+  let downAt = 0
+  let element = null
 
   document.body.addEventListener('mousedown', ev => {
-    heldAt = Date.now()
+    downAt = Date.now()
     ev.target.classList.add('zoom-target')
+    element = ev.target
   })
 
   document.body.addEventListener('mouseup', ev => {
     if (window.getSelection().toString()) return
 
-    ev.target.classList.remove('zoom-target')
-    const heldDuration = Date.now() - heldAt
-    if (heldDuration > DURATION) {
+    element.classList.remove('zoom-target')
+    const duration = Date.now() - downAt
+    if (duration > MIN_DURATION) {
       ev.preventDefault()
-      zoom.to({ element: ev.target })
+      zoom.to({ element })
+      element = null
     }
   })
 })()
