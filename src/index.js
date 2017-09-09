@@ -6,12 +6,14 @@
   let element = null
 
   document.body.addEventListener('mousedown', ev => {
+    if (ev.button !== 0) return
     downAt = Date.now()
     ev.target.classList.add('zoom-target')
     element = ev.target
   })
 
   document.body.addEventListener('mouseup', ev => {
+    if (ev.button !== 0) return
     element.classList.remove('zoom-target')
 
     if (window.getSelection().toString()) return
